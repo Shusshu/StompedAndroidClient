@@ -47,11 +47,6 @@ public class StompedClient {
         Log.d(TAG, "StompedClient has been built.");
     }
     
-    public void connect(){
-        this.connector.connect();
-        Log.d(TAG, "Client connecting");
-    }
-    
     public boolean isConnected(){
         return this.connector.isConnected();
     }
