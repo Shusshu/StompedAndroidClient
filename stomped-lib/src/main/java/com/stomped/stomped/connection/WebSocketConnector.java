@@ -44,7 +44,7 @@ public class WebSocketConnector {
             StompedFrame frame = StompedFrame.construct(StompedCommand.STOMP_COMMAND_CONNECT);
             frame.addHeader(StompedHeaders.STOMP_HEADER_ACCEPT_VERSION, "1.0,1.1,2.0");
             frame.addHeader(StompedHeaders.STOMP_HEADER_HOST, "stomp.github.org");
-            frame.addHeader(StompedHeaders.STOMP_HEADER_HEARTBEAT, "0," + builder.heartBeat);
+            frame.addHeader(StompedHeaders.STOMP_HEADER_HEARTBEAT, builder.heartBeat + "," + builder.heartBeat);
             write(frame.build());
 
             Log.d(TAG, "OkHttp WebSocket connection created.");
