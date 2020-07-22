@@ -96,6 +96,14 @@ public class WebSocketConnector {
 
             return connector;
         }
+        
+        public WebSocketConnector connect2(OkHttpClient.Builder okClientBuilder, String url){
+
+            WebSocketConnector connector = new WebSocketConnector(this);
+            connector.build(okClientBuilder, url);
+
+            return connector;
+        }
 
         public Builder setHeartBeat(int milliseconds){
             this.heartBeat = milliseconds;
@@ -113,6 +121,23 @@ public class WebSocketConnector {
 
         //Build the client
         OkHttpClient okClient = new OkHttpClient.Builder()
+                .readTimeout(0, TimeUnit.MILLISECONDS)
+                .build();
+
+        //Build The Request
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        okClient.newWebSocket(request, new OkWebSocketListener());
+
+        return this;
+    }
+    
+    private WebSocketConnector build(OkHttpClient.Builder okClientBuilder, String url){
+
+        //Build the client
+        OkHttpClient okClient = okClientBuilder
                 .readTimeout(0, TimeUnit.MILLISECONDS)
                 .build();
 
