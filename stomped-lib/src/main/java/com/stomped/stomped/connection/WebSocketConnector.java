@@ -53,6 +53,10 @@ public class WebSocketConnector {
         @Override
         public void onMessage(WebSocket webSocket, String message){
 
+            if (message == null || message.isBlank()) {
+                Log.d(TAG, "Blank Message received from server");
+                return;
+            }
             StompedFrame frame = StompedMessageParser.constructFrame(message);
 
             synchronized(monitor){
