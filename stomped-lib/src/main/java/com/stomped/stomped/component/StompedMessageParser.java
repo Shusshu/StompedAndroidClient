@@ -1,7 +1,5 @@
 package com.stomped.stomped.component;
 
-import android.util.Log;
-
 public class StompedMessageParser {
 
     private final static String TAG = "StompedMessageParser";
@@ -9,7 +7,6 @@ public class StompedMessageParser {
     private StompedMessageParser(){}
 
     public static StompedFrame constructFrame(String message){
-        Log.d(TAG, "constructFrame " + message);
         int currentPosition = 1;
         String command;
         StompedHeaders headers = new StompedHeaders();
