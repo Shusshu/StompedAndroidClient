@@ -1,5 +1,7 @@
 package com.stomped.stomped.component;
 
+import android.util.Log;
+
 public class StompedMessageParser {
 
     private final static String TAG = "StompedMessageParser";
