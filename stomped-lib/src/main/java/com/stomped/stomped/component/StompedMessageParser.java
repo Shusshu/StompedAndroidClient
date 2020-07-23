@@ -7,7 +7,7 @@ public class StompedMessageParser {
     private StompedMessageParser(){}
 
     public static StompedFrame constructFrame(String message){
-
+        Log.d(TAG, "constructFrame " + message);
         int currentPosition = 1;
         String command;
         StompedHeaders headers = new StompedHeaders();
